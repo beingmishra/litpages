@@ -52,12 +52,6 @@ class ScrapeHelper {
     if (elements != null) {
       // Loop through all found elements
       for (var data in elements.children) {
-        // Query block titles
-        final blockTitles = data.querySelector(".block-title");
-
-        if (blockTitles != null) {
-          print(blockTitles.text);
-        }
 
         // Find content items by class
         final contentItem =
@@ -103,12 +97,6 @@ class ScrapeHelper {
     if (elements != null) {
       // Loop through all found elements
       for (var data in elements.children) {
-        // Query block titles
-        final blockTitles = data.querySelector(".block-title");
-
-        if (blockTitles != null) {
-          print(blockTitles.text);
-        }
 
         // Find content items by class
         final contentItem =
@@ -223,6 +211,7 @@ class ScrapeHelper {
 
         bookDetailModel = BookDetailModel(id: bookId ?? "-", title: title ?? "-", poster: image ?? "-", author: author ?? "-", published: publishingYear ?? "-", reads: reads ?? "-", pages: pages ?? "-", description: description ?? "-", genre: genres);
 
+        return bookDetailModel;
       }
     }
 

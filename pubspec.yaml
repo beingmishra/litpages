@@ -12,8 +12,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  google_fonts: ^6.2.1
   html: ^0.15.4
   http: ^1.2.2
+  overlapped_carousel: ^1.0.2
 
 dev_dependencies:
   flutter_test:

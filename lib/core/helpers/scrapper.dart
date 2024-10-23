@@ -71,11 +71,31 @@ class ScrapeHelper {
                 ?.text
                 .trim();
 
+            final currentPrice = book
+                .querySelector(
+                ".field--name-field-ef-price")
+                ?.text
+                .trim();
+
+            final retailPrice = book
+                .querySelector(
+                ".field--name-field-ef-price-retail")
+                ?.text
+                .trim();
+
+            final author = book
+                .querySelector(
+                ".field--name-field-af-name")
+                ?.text
+                .trim();
+
             final bookId = book
                 .querySelector(".field--name-field-title a")
                 ?.attributes["href"]?.split("/").last;
 
-            books.add(BookListingModel(id: bookId ?? "", title: bookName ?? "", poster: posterImage ?? ""));
+            if(currentPrice != null && retailPrice != null){
+              books.add(BookListingModel(id: bookId ?? "", title: bookName ?? "", poster: posterImage ?? "", currentPrice: currentPrice ?? "Free", retailPrice: retailPrice ?? "Free", author: author));
+            }
 
           }
         }
@@ -207,6 +227,8 @@ class ScrapeHelper {
             genres.add(genre.text);
           }
         }
+
+        print(image);
 
         bookDetailModel = BookDetailModel(id: bookId ?? "-", title: title ?? "-", poster: image ?? "-", author: author ?? "-", published: publishingYear ?? "-", reads: reads ?? "-", pages: pages ?? "-", description: description ?? "-", genre: genres);
 

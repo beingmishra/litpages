@@ -38,15 +38,26 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Icon(Icons.arrow_back_ios_new, color: Colors.white,),
-                                Text("Details", style: GoogleFonts.nunitoSans(
-                                  fontSize: 18
-                                ),),
-                                const Icon(Icons.favorite_border, color: Colors.white,)
+                                InkWell(
+                                  onTap:() => Navigator.pop(context),
+                                  child: const Icon(
+                                    Icons.arrow_back_ios_new,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Text(
+                                  "Details",
+                                  style: GoogleFonts.nunitoSans(fontSize: 18),
+                                ),
+                                const Icon(
+                                  Icons.favorite_border,
+                                  color: Colors.white,
+                                )
                               ],
                             ),
                           ),
@@ -67,9 +78,8 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                                 Text(
                                   "Book name",
                                   style: GoogleFonts.nunitoSans(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 22
-                                  ),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 22),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -77,9 +87,8 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                                 Text(
                                   "James robin",
                                   style: GoogleFonts.nunitoSans(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                  ),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -98,13 +107,17 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                               children: [
                                 Column(
                                   children: [
-                                    Text("0.0", style: GoogleFonts.nunitoSans(
-                                      fontSize: 18
-                                    ),),
+                                    Text(
+                                      "0.0",
+                                      style:
+                                          GoogleFonts.nunitoSans(fontSize: 18),
+                                    ),
                                     verticalGap(4),
-                                    Text("Ratings", style: GoogleFonts.nunitoSans(
-                                      color: AppColors.hintColor
-                                    ),)
+                                    Text(
+                                      "Ratings",
+                                      style: GoogleFonts.nunitoSans(
+                                          color: AppColors.hintColor),
+                                    )
                                   ],
                                 ),
                                 Container(
@@ -114,13 +127,17 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                                 ),
                                 Column(
                                   children: [
-                                    Text("123", style: GoogleFonts.nunitoSans(
-                                      fontSize: 18
-                                    ),),
+                                    Text(
+                                      "123",
+                                      style:
+                                          GoogleFonts.nunitoSans(fontSize: 18),
+                                    ),
                                     verticalGap(4),
-                                    Text("Pages", style: GoogleFonts.nunitoSans(
-                                      color: AppColors.hintColor
-                                    ),)
+                                    Text(
+                                      "Pages",
+                                      style: GoogleFonts.nunitoSans(
+                                          color: AppColors.hintColor),
+                                    )
                                   ],
                                 ),
                                 Container(
@@ -130,13 +147,17 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                                 ),
                                 Column(
                                   children: [
-                                    Text("EN", style: GoogleFonts.nunitoSans(
-                                      fontSize: 18
-                                    ),),
+                                    Text(
+                                      "EN",
+                                      style:
+                                          GoogleFonts.nunitoSans(fontSize: 18),
+                                    ),
                                     verticalGap(4),
-                                    Text("Language", style: GoogleFonts.nunitoSans(
-                                      color: AppColors.hintColor
-                                    ),)
+                                    Text(
+                                      "Language",
+                                      style: GoogleFonts.nunitoSans(
+                                          color: AppColors.hintColor),
+                                    )
                                   ],
                                 ),
                               ],
@@ -146,6 +167,36 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                       ),
                     ),
                   )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Wrap(
+                      spacing: 12,
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      direction: Axis.horizontal,
+                      runAlignment: WrapAlignment.start,
+                      crossAxisAlignment: WrapCrossAlignment.start,
+                      runSpacing: 12,
+                      children: List.generate(
+                        12,
+                            (index) => const Chip(label: Text("Category"))
+                      ),
+                    ),
+                  ),
+                  verticalGap(16),
+                  Text(
+                    "Description",
+                    style: GoogleFonts.nunitoSans(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Text("Description text here")
                 ],
               ),
             )

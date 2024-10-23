@@ -1,11 +1,10 @@
 import 'package:html/dom.dart';
-import 'package:html/parser.dart' show parse;
 import 'package:litpages/features/detail/models/book_detail_model.dart';
 import 'package:litpages/features/home/models/book_listing_model.dart';
 
 class ScrapeHelper {
 
-  List<BookListingModel> extractEditorChoice(Document document) {
+  static List<BookListingModel> extractEditorChoice(Document document) {
 
     List<BookListingModel> books = [];
 
@@ -42,7 +41,7 @@ class ScrapeHelper {
     return books;
   }
 
-  List<BookListingModel> extractFreeBooks(Document document) {
+  static List<BookListingModel> extractFreeBooks(Document document) {
 
     List<BookListingModel> books = [];
 
@@ -86,7 +85,7 @@ class ScrapeHelper {
     return books;
   }
 
-  List<BookListingModel> extractTrendingBooks(
+  static List<BookListingModel> extractTrendingBooks(
       Document document) {
 
     List<BookListingModel> books = [];
@@ -126,7 +125,7 @@ class ScrapeHelper {
     return books;
   }
 
-  List<BookListingModel> extractPopularBooks(Document document) {
+  static List<BookListingModel> extractPopularBooks(Document document) {
 
     List<BookListingModel> books = [];
 
@@ -165,7 +164,7 @@ class ScrapeHelper {
     return books;
   }
 
-  BookDetailModel? extractBookDetails(Document document) {
+  static BookDetailModel? extractBookDetails(Document document) {
 
     BookDetailModel? bookDetailModel;
 
